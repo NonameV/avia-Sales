@@ -1,6 +1,9 @@
 .d-flex {
   display: flex;
 }
+.hide-on-med-and-down{
+  display: block !important;
+}
 
 .align-items-center {
   align-items: center;
