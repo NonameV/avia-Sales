@@ -31,7 +31,18 @@ class Api{
             return Promise.reject(err);
         }
     }
-    prices(params){}
+    async prices(params){
+        // ця асинхронна функція виконує запит на сервер для отримання білетів
+        try {
+            const response = await axios.get(`${this.url}/prices/cheap`, {
+                params
+            });
+            return response;
+        } catch(err){
+            console.log(err);
+            return Promise.reject(err);
+        }
+    }
 }
 
 const api = new Api(config);

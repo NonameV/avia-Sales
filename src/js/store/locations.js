@@ -15,7 +15,7 @@ class Locations {
         const [countries, cities] = res; //деструктуруємо повернений массив на два массива країн та міст
         this.countries = this.transformCountries(countries);
         this.cities = this.transfromCities(cities);
-        this.shortCities = this.createShorCitiesList(this.cities)
+        this.shortCities = this.createShorCitiesList(this.cities);
         return res;
     }
     getCitiesByCountryCode(code){
@@ -51,6 +51,20 @@ class Locations {
             acc[key] = null;
             return acc
         }, {})
+    }
+    getCityCodeByKey(key){
+        //функція отримує код міста по ключу {'Наза міста, Назва країни'}
+        return this.cities[key].code;
+    }
+    async fetchTickets(params){
+        try{
+            const response = await this.api.prices(params);
+            console.log(response);
+        } catch(err){
+            console.log(err);
+            return Promise.reject(err);
+        }
+        
     }
     
 }
