@@ -5,15 +5,45 @@ import locations from './store/locations';
 import formUI from './views/form';
 import ticketsUI from './views/tickets'
 import currencyUI from './views/currency';
+import favorites from './store/favorites'
+import favoritesUI from './views/favorites'
 
 document.addEventListener('DOMContentLoaded', () => { //обробчик події загрузки сторінки
     const form = formUI.form;
     initApp();
     
     //Події
+    document.addEventListener('click', ({target})=>{
+        if(target.innerHTML === 'Вибрані'){
+            document.querySelector('#dropdown1').style.display = 'block';
+        }else{
+            document.querySelector('#dropdown1').style.display = 'none';
+        }
+    })
+    document.addEventListener('click', (e) => { //обробчик події нажатої кнопки додавання білету з вибраних
+        if(e.target.innerHTML == 'Додати до вибраних'){
+            const ticketFavObj = {
+                logo: e.target.parentElement.parentElement.querySelector('.ticket-airline-img').currentSrc,
+                from: e.target.parentElement.parentElement.querySelectorAll('.ticket-city')[0].innerHTML,
+                to:e.target.parentElement.parentElement.querySelectorAll('.ticket-city')[1].innerHTML,
+                date: e.target.parentElement.parentElement.querySelectorAll('.ticket-time-departure').innerHTML,
+                price: e.target.parentElement.parentElement.querySelectorAll('.ticket-price').innerHTML,
+                number: e.target.parentElement.parentElement.querySelectorAll('.ticket-flight-number').innerHTML
+            }
+            favorites.addNewItem(ticketFavObj);
+            favoritesUI.renderFavList(favorites.items);
+            
+        }
+    })
+    document.addEventListener('click', (e) => { //обробчик події нажатої кнопки видалення білету з вибраних
+        if(e.target.innerText == 'Видалити'){
+            e.target.parentElement.parentElement.style.display = 'none';
+        }
+    }) 
     form.addEventListener('submit', (e) => { //обробчик події відправки форми
         e.preventDefault();
         onFormSubmit();
+        
     })
     
 

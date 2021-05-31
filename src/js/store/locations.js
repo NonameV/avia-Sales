@@ -1,5 +1,6 @@
-import api from '../services/apiService'
-import {formatDate} from '../helpers/date'
+import api from '../services/apiService';
+import {formatDate} from '../helpers/date';
+
 
 class Locations {
     constructor(api, helpers){
@@ -105,7 +106,8 @@ class Locations {
                 airline_logo: this.getAirlineLogoByCode(ticket.airline),
                 airline_name: this.getAirlineNameByCode(ticket.airline),
                 departure_at: this.formatDate(ticket.departure_at, 'dd MMM yyyy hh:mm'),
-                return_at: this.formatDate(ticket.return_at, 'dd MMM yyyy hh:mm')
+                return_at: this.formatDate(ticket.return_at, 'dd MMM yyyy hh:mm'),
+                // current_d: uniqid()
             }
             return obj;
         })

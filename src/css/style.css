@@ -1,7 +1,7 @@
 .d-flex {
   display: flex;
 }
-.hide-on-med-and-down{
+.hide-on-med-and-down {
   display: block !important;
 }
 
@@ -109,4 +109,50 @@
   background: whitesmoke;
   font-weight: bold;
   font-size: 18px;
+}
+#dropdown1 {
+  opacity: 1;
+  display: none;
+  margin-top: 65px;
+  width: 100%;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.favorite-item {
+  align-items: center;
+  justify-content: space-around;
+  color: #000;
+  flex-direction: column;
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+}
+.favorite-item img {
+  width: 140px;
+}
+.favorite-item-info {
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+.favorite-item-info > * {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.ticket-time-departure {
+  margin-right: 20px;
+}
+.ticket-flight-number {
+  color: red;
+  padding-right: 25px;
+}
+.dropdown-trigger {
+  margin-left: 20px;
+}
+.add-to-fav {
+  padding: 10px 20px;
+  background-color: green;
+  display: inline-block;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
 }
