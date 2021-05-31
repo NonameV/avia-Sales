@@ -37,7 +37,19 @@ class Api{
             const response = await axios.get(`${this.url}/prices/cheap`, {
                 params
             });
-            return response;
+            return response.data;
+        } catch(err){
+            alert('Введіть всі данні')
+            return Promise.reject(err);
+        }
+    }
+    async airlines(params){
+        // ця асинхронна функція виконує запит на сервер для отримання інформації про авіарейси
+        try {
+            const response = await axios.get(`${this.url}/airlines`, {
+                params
+            });
+            return response.data;
         } catch(err){
             console.log(err);
             return Promise.reject(err);
