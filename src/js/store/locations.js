@@ -107,7 +107,6 @@ class Locations {
                 airline_name: this.getAirlineNameByCode(ticket.airline),
                 departure_at: this.formatDate(ticket.departure_at, 'dd MMM yyyy hh:mm'),
                 return_at: this.formatDate(ticket.return_at, 'dd MMM yyyy hh:mm'),
-                // current_d: uniqid()
             }
             return obj;
         })
