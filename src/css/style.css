@@ -156,3 +156,9 @@
   font-size: 18px;
   cursor: pointer;
 }
+.add-to-fav {
+  transition: 0.4s;
+}
+.add-to-fav:hover {
+  background-color: #6a1b9a;
+}
