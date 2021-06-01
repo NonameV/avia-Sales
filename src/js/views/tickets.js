@@ -38,7 +38,7 @@ class TicketsUI{
           </div>
           <div class="ticket-time-price d-flex align-items-center">
             <span class="ticket-time-departure">${departure_at}</span>
-            <span class="ticket-price ml-auto">price: ${price}</span>
+            <span class="ticket-price ml-auto">ціна: ${price}</span>
           </div>
           <div class="ticket-additional-info">
             <span class="ticket-flight-number">Номер рейса: ${flight_number}</span>

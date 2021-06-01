@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => { //обробчик под�
     
     //Події
     document.addEventListener('click', ({target})=>{
-        if(target.innerHTML === 'Вибрані'){
+        if(target.innerHTML === 'Вибрані' || target.innerText === 'ВИДАЛИТИ'){
             document.querySelector('#dropdown1').style.display = 'block';
         }else{
             document.querySelector('#dropdown1').style.display = 'none';
@@ -26,17 +26,18 @@ document.addEventListener('DOMContentLoaded', () => { //обробчик под�
                 logo: e.target.parentElement.parentElement.querySelector('.ticket-airline-img').currentSrc,
                 from: e.target.parentElement.parentElement.querySelectorAll('.ticket-city')[0].innerHTML,
                 to:e.target.parentElement.parentElement.querySelectorAll('.ticket-city')[1].innerHTML,
-                date: e.target.parentElement.parentElement.querySelectorAll('.ticket-time-departure').innerHTML,
-                price: e.target.parentElement.parentElement.querySelectorAll('.ticket-price').innerHTML,
-                number: e.target.parentElement.parentElement.querySelectorAll('.ticket-flight-number').innerHTML
+                date: e.target.parentElement.parentElement.querySelector('.ticket-time-departure').innerHTML,
+                price: e.target.parentElement.parentElement.querySelector('.ticket-price').innerHTML,
+                number: e.target.parentElement.parentElement.querySelector('.ticket-flight-number').innerHTML
             }
+            console.log(e.target.parentElement.parentElement.querySelectorAll('.ticket-price'));
             favorites.addNewItem(ticketFavObj);
             favoritesUI.renderFavList(favorites.items);
             
         }
     })
     document.addEventListener('click', (e) => { //обробчик події нажатої кнопки видалення білету з вибраних
-        if(e.target.innerText == 'Видалити'){
+        if(e.target.innerText == 'ВИДАЛИТИ'){
             e.target.parentElement.parentElement.style.display = 'none';
         }
     }) 

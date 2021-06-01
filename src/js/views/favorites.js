@@ -36,7 +36,7 @@ class FavoritesUI{
             <span class="ticket-price ml-auto">${ticket.price}</span>
           </div>
           <div class="ticket-additional-info">
-            <span class="ticket-flight-number">Номер рейса: ${ticket.number}</span>
+            <span class="ticket-flight-number">${ticket.number}</span>
           </div>
           <a
             class="waves-effect waves-light btn-small pink darken-3 delete-favorite ml-auto"
