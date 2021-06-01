@@ -17,7 +17,7 @@ class TicketsUI{
         this.container.innerHTML = '';
     }
     showEmptyMessage(){
-        this.container.innerHTML = '<div class="tickets-empty-res-msg">По вашему запиту билетів не знайдено.</div>';
+        this.container.innerHTML = '<div class="tickets-empty-res-msg">По вашему запиту квитків не знайдено.</div>';
     }
     static ticketTemplate({airline_logo, airline_name, destination_name, origin_name, departure_at, price, flight_number, current_id}){
         return `<div class="col m12 l6">
@@ -42,7 +42,7 @@ class TicketsUI{
           </div>
           <div class="ticket-additional-info">
             <span class="ticket-flight-number">Номер рейса: ${flight_number}</span>
-            <span class='add-to-fav'>Додати до вибраних</span>
+            <span class='add-to-fav'>Додати до обраних</span>
           </div>
         </div>
       </div>`

@@ -14,14 +14,14 @@ document.addEventListener('DOMContentLoaded', () => { //обробчик под�
     
     //Події
     document.addEventListener('click', ({target})=>{
-        if(target.innerHTML === 'Вибрані' || target.innerText === 'ВИДАЛИТИ'){
+        if(target.innerHTML === 'Обрані' || target.innerText === 'ВИДАЛИТИ'){
             document.querySelector('#dropdown1').style.display = 'block';
         }else{
             document.querySelector('#dropdown1').style.display = 'none';
         }
     })
     document.addEventListener('click', (e) => { //обробчик події нажатої кнопки додавання білету з вибраних
-        if(e.target.innerHTML == 'Додати до вибраних'){
+        if(e.target.innerHTML == 'Додати до обраних'){
             const ticketFavObj = {
                 logo: e.target.parentElement.parentElement.querySelector('.ticket-airline-img').currentSrc,
                 from: e.target.parentElement.parentElement.querySelectorAll('.ticket-city')[0].innerHTML,
