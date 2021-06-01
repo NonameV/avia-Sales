@@ -38,13 +38,17 @@ document.addEventListener('DOMContentLoaded', () => { //обробчик под�
     })
     document.addEventListener('click', (e) => { //обробчик події нажатої кнопки видалення білету з вибраних
         if(e.target.innerText == 'ВИДАЛИТИ'){
-            e.target.parentElement.parentElement.style.display = 'none';
+            favorites.removeItem(e.target.id);
+            favoritesUI.renderFavList(favorites.items);
         }
     }) 
     form.addEventListener('submit', (e) => { //обробчик події відправки форми
         e.preventDefault();
         onFormSubmit();
         
+    })
+    document.querySelector('#filter-prices').addEventListener('click', () => { // обробчик події нажатаї кнопки філбтрування по ціні
+        ticketsUI.renderTickets(locations.filterByCheapest());        
     })
     
 

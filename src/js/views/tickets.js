@@ -4,6 +4,7 @@ class TicketsUI{
         this.container = document.querySelector('.tickets-sections .row')
     }
     renderTickets(tickets){
+      if(!tickets) return;
         this.clearContainer();
         if(!tickets.length){
             this.showEmptyMessage()

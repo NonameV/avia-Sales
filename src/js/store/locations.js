@@ -111,7 +111,20 @@ class Locations {
             return obj;
         })
     }
+    filterByCheapest(){
+        // функція сортування білетів по ціні
+        if(this.lastSearch){
+            return this.lastSearch.sort((a, b) => {
+                return a.price - b.price;
+            });
+        }else{
+            alert('Спочатку знайдіть білети для сортування їх ціни')
+        }
+        
+    }
 }
+
+
 
 
 const locations = new Locations(api, {formatDate});

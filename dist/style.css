@@ -184,3 +184,8 @@ nav {
   z-index: 5;
 }
 
+#filter-prices {
+  margin: 0 auto;
+  display: block;
+}
+

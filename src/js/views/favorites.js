@@ -8,11 +8,12 @@ class FavoritesUI{
     
     renderFavList(items){
         this.container.innerHTML = '';
-        Object.values(items).forEach(e => {
+        items.forEach(e => {
              this.container.innerHTML += FavoritesUI.favItemTemplate(e);
          })
     }
     static favItemTemplate(ticket){
+      console.log(ticket.id)
         return `<div class="favorite-item  d-flex align-items-start">
         <img
           src="${ticket.logo}"
@@ -39,7 +40,7 @@ class FavoritesUI{
             <span class="ticket-flight-number">${ticket.number}</span>
           </div>
           <a
-            class="waves-effect waves-light btn-small pink darken-3 delete-favorite ml-auto"
+            class="waves-effect waves-light btn-small pink darken-3 delete-favorite ml-auto" id="${ticket.id}"
             >Видалити</a
           >
         </div>
