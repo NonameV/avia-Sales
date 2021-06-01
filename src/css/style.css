@@ -1,3 +1,6 @@
+form {
+  margin-top: 70px;
+}
 .d-flex {
   display: flex;
 }
@@ -161,4 +164,8 @@
 }
 .add-to-fav:hover {
   background-color: #6a1b9a;
+}
+nav {
+  position: fixed;
+  z-index: 5;
 }
