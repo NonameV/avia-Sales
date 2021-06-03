@@ -122,6 +122,30 @@ class Locations {
         }
         
     }
+    
+    filterByAviaCompany(airlineName){
+        // функція сортування білетів по авіакомпанії
+        if(this.lastSearch){
+            return this.lastSearch.filter((e) => {
+                if (e.airline_name == airlineName){
+                    return e
+                }
+            })
+        }else{
+            alert('Спочатку знайдіть білети для сортування Їх за авіакомпаніями')
+        }
+        
+    }
+    createListOfAviaCopmanies(){
+        // функція що відбрасує дублі для радіобатонів авіакомпаній airline_name const withOutDoubles =
+        if(this.lastSearch){
+            return this.lastSearch.map((e) => e.airline_name).reduce((acc, el) => {
+               return acc.includes(el) ? acc : [...acc, el ];
+            }, [])         
+        }else{
+            return
+        }
+    }
 }
 
 

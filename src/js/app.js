@@ -5,8 +5,9 @@ import locations from './store/locations';
 import formUI from './views/form';
 import ticketsUI from './views/tickets'
 import currencyUI from './views/currency';
-import favorites from './store/favorites'
-import favoritesUI from './views/favorites'
+import favorites from './store/favorites';
+import favoritesUI from './views/favorites';
+import aviaCompanyFilterUI from './views/aviaCompanyFilter'
 
 document.addEventListener('DOMContentLoaded', () => { //обробчик події загрузки сторінки
     const form = formUI.form;
@@ -51,6 +52,13 @@ document.addEventListener('DOMContentLoaded', () => { //обробчик под�
         ticketsUI.renderTickets(locations.filterByCheapest());        
     })
     
+    document.addEventListener('click', ({target}) => { // обробчик події нажатаї кнопки філбтрування по авіокомпанії
+            if(target.className == 'avia-checkbox'){
+                ticketsUI.renderTickets(locations.filterByAviaCompany(target.dataset.aviaName));
+            }
+
+    })
+    
 
     async function initApp(){
         await locations.init();
@@ -71,6 +79,8 @@ document.addEventListener('DOMContentLoaded', () => { //обробчик под�
             return_date,
             currency
         });
-        ticketsUI.renderTickets(locations.lastSearch)
+        ticketsUI.renderTickets(locations.lastSearch);
+        // aviaCompanyFilterUI.renderAviaCompanyCheckBoxes();
+        aviaCompanyFilterUI.renderAviaCompanyCheckBoxes(locations.createListOfAviaCopmanies())
     }
 })
