@@ -9,6 +9,7 @@ class Locations {
         this.cities = null;
         this.airlines = null;
         this.lastSearch = null;
+        this.filterSearch = null;
         this.formatDate = helpers.formatDate;
     }
     async init(){
@@ -113,12 +114,17 @@ class Locations {
     }
     filterByCheapest(){
         // функція сортування білетів по ціні
-        if(this.lastSearch){
+        if(this.filterSearch){
+            return this.filterSearch.sort((a, b) => {
+                return a.price - b.price;
+            });
+        }
+        else if(this.lastSearch){
             return this.lastSearch.sort((a, b) => {
                 return a.price - b.price;
             });
         }else{
-            alert('Спочатку знайдіть білети для сортування їх ціни')
+            return;
         }
         
     }
@@ -126,7 +132,7 @@ class Locations {
     filterByAviaCompany(airlineName){
         // функція сортування білетів по авіакомпанії
         if(this.lastSearch){
-            return this.lastSearch.filter((e) => {
+            return this.filterSearch = this.lastSearch.filter((e) => {
                 if (e.airline_name == airlineName){
                     return e
                 }
